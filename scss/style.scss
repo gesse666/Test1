@@ -1,0 +1,147 @@
+@import '_variables';
+@font-face {
+    font-family: 'Bebas Neue';
+    src: local('Bebas Neue'), local('Bebas Neue'),
+        url('/fonts/Bebas\ Neue.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+* 
+{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: $background;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-column-gap: 94px;
+    grid-row-gap: 38px;
+    grid-template-columns: 860px 1fr;
+    grid-template-areas: 
+      "A B"
+      "A C"
+      "A D";
+        @media (max-width:500px) {
+            grid-template-columns: 1fr;
+            grid-column-gap: 0;
+            grid-row-gap: 22px;
+            grid-template-areas: 
+            "B"
+            "C"
+            "A"
+            "D";
+        }
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-top: 26px;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-bottom: 88px;
+        @media (max-width:500px) {
+            padding-top: 13px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+}
+
+.table {
+    position: relative;
+    grid-area: A;
+    @media (max-width:500px) {
+        height: 293px;
+    }
+    &__img {
+        position: absolute;
+        top:30px;
+        transition: top 0.9s;
+        width: 100%;
+        @media (max-width:500px) {
+            top:1px;
+            transition: top 0.9s;
+        }
+        &--open {
+            top: 0;
+            transition: top 0.9s;
+            @media (max-width:500px) {
+                top:-15px;
+                transition: top 0.9s;
+            }
+        }
+        &-legs{
+            width: 100%;
+            position: absolute;
+            top: 240px;
+            z-index: -1;
+            @media (max-width:500px) {
+                top:74px
+            }
+        }
+    }
+    &__btns {
+    display: inline-block;
+    position: absolute;
+    left: 19%;
+    top: 442px;
+    @media (max-width:500px) {
+        top: 131px;
+    }
+    }
+    &__btn {
+        width: 198px;
+        height: 198px;
+        text-align: center;
+        background-color: $button_background;
+        border: solid 1px $button_background;
+        border-radius: 100%;
+        font-size: 40.1944px;
+        color: $button_text;
+        font-family: 'Ubuntu', sans-serif;
+        margin: 0 37px;
+        @media (max-width:500px) {
+            width: 60px;
+            height: 60px;
+            font-size: 12.2752px;
+            margin: 0 11px;
+        }
+    }
+}
+
+.descr {
+    max-width: 450px;
+    &__title {
+        font-weight: 300;
+        font-size: 62px;
+        line-height: 100%;
+        color: $title;
+        grid-area: B;
+        padding-right: 30px;
+        @media (max-width:500px) {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 38px;
+        }
+    }
+    &__text {
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 170%;
+        color: $text;
+        grid-area: C;
+        max-width: 500px;
+        @media (max-width:500px) {
+            font-size: 16px;
+            max-width: none;
+        }
+    }
+    &__text-2 {
+        grid-area: D;
+    }
+}
